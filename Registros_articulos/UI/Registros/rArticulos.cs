@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Registros_articulos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,36 @@ namespace Registros_articulos.UI.Registros
         public rArticulos()
         {
             InitializeComponent();
+        }
+
+        private Articulos LlenaClase()
+        {
+            Articulos articulo = new Articulos();
+
+            articulo.ArticuloId = Convert.ToInt32(ArticuloId_numericUpDown.Value);
+            articulo.FechaVencimiento = FechaVencimiento_dateTimePicker.Value;
+            articulo.Descripcion = Descripcion_textBox.Text;
+            articulo.precio = Convert.ToInt32(Precio_numericUpDown.Value);
+            articulo.Existencia = Convert.ToInt32(Existencia_numericUpDown.Value);
+            articulo.cantCotizada = Convert.ToInt32(CantidadCotizada_numericUpDown.Value);
+
+            return articulo;
+        }
+
+        private void Nuevo_button_Click(object sender, EventArgs e)
+        {
+            ArticuloId_numericUpDown.Value = 0;
+            FechaVencimiento_dateTimePicker.ResetText();
+            Descripcion_textBox.Clear();
+            Precio_numericUpDown.Value = 0;
+            Existencia_numericUpDown.Value = 0;
+            CantidadCotizada_numericUpDown.Value = 0;
+           
+        }
+
+        private void Guardar_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
