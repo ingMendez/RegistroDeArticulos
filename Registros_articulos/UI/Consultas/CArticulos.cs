@@ -15,5 +15,7 @@ namespace Registros_articulos.UI.Consultas
         {
             InitializeComponent();
         }
+
+      
     }
 }
