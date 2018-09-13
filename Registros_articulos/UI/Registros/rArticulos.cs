@@ -16,17 +16,41 @@ namespace Registros_articulos.UI.Registros
         {
             InitializeComponent();
         }
-        private bool Validar()
+        private bool GuardarValidar()
         {
-            bool TieneErrores = true;
+            bool paso = true;
 
             if (string.IsNullOrWhiteSpace(Descripcion_textBox.Text))
             {
                 MessageBox.Show("Debe Llenar el campo ");
-                TieneErrores = true;
+                paso = false;
             }
-            return TieneErrores;
+            if (FechaVencimiento_dateTimePicker.Value != DateTime.Now && FechaVencimiento_dateTimePicker.Value < DateTime.Now)
+            {
+                MessageBox.Show("debe seleccionar una fecha mayor a la actual");
+                paso = false;
+            }
+
+            if (Precio_numericUpDown.Value == 0)
+            {
+                MessageBox.Show("Falto Digitar el precio del articulo");
+                paso = false;
+            }
+            if (Existencia_numericUpDown.Value == 0)
+            {
+                MessageBox.Show("Falto digitar la Existencia");
+                paso = false;
+            }
+            if(CantidadCotizada_numericUpDown.Value == 0)
+            {
+                MessageBox.Show("Falto digitar la cotizacion");
+                paso = false;
+            }
+
+
         }
+         
+    
 
         private Articulos LlenaClase()
         {
