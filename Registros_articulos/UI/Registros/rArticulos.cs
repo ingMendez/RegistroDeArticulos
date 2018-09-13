@@ -20,13 +20,8 @@ namespace Registros_articulos.UI.Registros
         private bool GuardarValidar()
         {
             bool paso = true;
-            if (string.IsNullOrWhiteSpace(Descripcion_textBox.Text) || 
-                FechaVencimiento_dateTimePicker.Value != DateTime.Now && FechaVencimiento_dateTimePicker.Value < DateTime.Now ||
-                Precio_numericUpDown.Value ==0 ||
-                Existencia_numericUpDown.Value ==0||
-                CantidadCotizada_numericUpDown.Value ==0 ||
-                CantidadCotizada_numericUpDown.Value > Existencia_numericUpDown.Value
-                ) ; 
+          //  if (string.IsNullOrWhiteSpace(Descripcion_textBox.Text)||(FechaVencimiento_dateTimePicker.Value != DateTime.Now && FechaVencimiento_dateTimePicker.Value < DateTime.Now )|| Precio_numericUpDown.Value ==0 ||Existencia_numericUpDown.Value ==0||(CantidadCotizada_numericUpDown.Value == 0 ||(CantidadCotizada_numericUpDown.Value > Existencia_numericUpDown.Value)));
+
             if (string.IsNullOrWhiteSpace(Descripcion_textBox.Text))
             {
                SuperErrorProvider.SetError(Descripcion_textBox,"Debe Llenar el campo ");
@@ -40,17 +35,17 @@ namespace Registros_articulos.UI.Registros
             if (Precio_numericUpDown.Value == 0)
             {
                SuperErrorProvider.SetError(Precio_numericUpDown,"Falto Digitar el precio del articulo");
-                paso = false;
+               paso = false;
             }
             if (Existencia_numericUpDown.Value == 0)
             {
                SuperErrorProvider.SetError(Existencia_numericUpDown,"Falto digitar la Existencia");
-                paso = false;
+               paso = false;
             }
             if(CantidadCotizada_numericUpDown.Value == 0)
             {
                SuperErrorProvider.SetError(CantidadCotizada_numericUpDown,"Falto digitar la cotizacion");
-                paso = false;
+               paso = false;
             }
             else
             if(CantidadCotizada_numericUpDown.Value >Existencia_numericUpDown.Value)
@@ -101,8 +96,8 @@ namespace Registros_articulos.UI.Registros
         {
             SuperErrorProvider.Clear();
             int id = (int)ArticuloId_numericUpDown.Value;
-            Articulos articulos = LlenaClase();
-            Articulos articulos_guardar = ArticulosBLL.Buscar(id);
+            Articulos articulos = ArticulosBLL.Buscar(id);
+            Articulos articulos_guardar = LlenaClase();
             
             if (articulos == null)
             {
