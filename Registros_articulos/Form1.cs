@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Registros_articulos.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,31 @@ namespace Registros_articulos
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void ArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rArticulos c = new rArticulos();
+            c.ShowDialog();
+           
+        }
+
+        private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rArticulos c = new rArticulos();
+            c.ShowDialog();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rArticulos c = new rArticulos();
+           
         }
     }
 }

@@ -16,6 +16,17 @@ namespace Registros_articulos.UI.Registros
         {
             InitializeComponent();
         }
+        private bool Validar()
+        {
+            bool TieneErrores = true;
+
+            if (string.IsNullOrWhiteSpace(Descripcion_textBox.Text))
+            {
+                MessageBox.Show("Debe Llenar el campo ");
+                TieneErrores = true;
+            }
+            return TieneErrores;
+        }
 
         private Articulos LlenaClase()
         {
@@ -44,6 +55,13 @@ namespace Registros_articulos.UI.Registros
 
         private void Guardar_button_Click(object sender, EventArgs e)
         {
+            Articulos articulos = LlenaClase();
+            bool paso = false;
+            
+            if(Validar()) ///sim la funcion validar = true entonces guardaame
+            {
+                
+            }
 
         }
     }
