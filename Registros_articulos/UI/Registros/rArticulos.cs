@@ -1,4 +1,5 @@
-﻿using Registros_articulos.Entidades;
+﻿using Registros_articulos.BLL;
+using Registros_articulos.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,35 +20,54 @@ namespace Registros_articulos.UI.Registros
         private bool GuardarValidar()
         {
             bool paso = true;
-
+            if (string.IsNullOrWhiteSpace(Descripcion_textBox.Text) || 
+                FechaVencimiento_dateTimePicker.Value != DateTime.Now && FechaVencimiento_dateTimePicker.Value < DateTime.Now ||
+                Precio_numericUpDown.Value ==0 ||
+                Existencia_numericUpDown.Value ==0||
+                CantidadCotizada_numericUpDown.Value ==0 ||
+                CantidadCotizada_numericUpDown.Value > Existencia_numericUpDown.Value
+                ) ; 
             if (string.IsNullOrWhiteSpace(Descripcion_textBox.Text))
             {
-                MessageBox.Show("Debe Llenar el campo ");
+               SuperErrorProvider.SetError(Descripcion_textBox,"Debe Llenar el campo ");
                 paso = false;
             }
             if (FechaVencimiento_dateTimePicker.Value != DateTime.Now && FechaVencimiento_dateTimePicker.Value < DateTime.Now)
             {
-                MessageBox.Show("debe seleccionar una fecha mayor a la actual");
+                SuperErrorProvider.SetError(FechaVencimiento_dateTimePicker,"debe seleccionar una fecha mayor a la actual");
                 paso = false;
             }
-
             if (Precio_numericUpDown.Value == 0)
             {
-                MessageBox.Show("Falto Digitar el precio del articulo");
+               SuperErrorProvider.SetError(Precio_numericUpDown,"Falto Digitar el precio del articulo");
                 paso = false;
             }
             if (Existencia_numericUpDown.Value == 0)
             {
-                MessageBox.Show("Falto digitar la Existencia");
+               SuperErrorProvider.SetError(Existencia_numericUpDown,"Falto digitar la Existencia");
                 paso = false;
             }
             if(CantidadCotizada_numericUpDown.Value == 0)
             {
-                MessageBox.Show("Falto digitar la cotizacion");
+               SuperErrorProvider.SetError(CantidadCotizada_numericUpDown,"Falto digitar la cotizacion");
                 paso = false;
             }
-
-
+            else
+            if(CantidadCotizada_numericUpDown.Value >Existencia_numericUpDown.Value)
+            {
+                MessageBox.Show("la cantidad cotizada no puede superar a la Existencia");
+            }
+            return paso;
+        }
+        private void Limpiar()
+        {
+            ArticuloId_numericUpDown.Value = 0;
+            FechaVencimiento_dateTimePicker.ResetText();
+            Descripcion_textBox.Clear();
+            Precio_numericUpDown.Value = 0;
+            CantidadCotizada_numericUpDown.Value = 0;
+            Existencia_numericUpDown.Value = 0;
+            
         }
          
     
@@ -79,14 +99,57 @@ namespace Registros_articulos.UI.Registros
 
         private void Guardar_button_Click(object sender, EventArgs e)
         {
+            SuperErrorProvider.Clear();
+            int id = (int)ArticuloId_numericUpDown.Value;
             Articulos articulos = LlenaClase();
-            bool paso = false;
+            Articulos articulos_guardar = ArticulosBLL.Buscar(id);
             
-            if(Validar()) ///sim la funcion validar = true entonces guardaame
+            if (articulos == null)
             {
-                
-            }
+                if (GuardarValidar()) ///sim la funcion validar = true entonces guardaame
+                {
+                    if (ArticulosBLL.Guardar(articulos_guardar))
+                    {
+                        MessageBox.Show("Articulo Guardado");
+                        Limpiar();
 
+                    }
+                }
+            }
+            else
+            {
+                if (GuardarValidar())
+                {
+                    if (ArticulosBLL.Modificar(articulos_guardar))
+                        MessageBox.Show("articulo Modificado");
+                    else
+                        MessageBox.Show("Articulo no medificado");
+                }
+
+
+
+            }
+            
+        }
+
+        private void Eliminar_button_Click(object sender, EventArgs e)
+        {
+            SuperErrorProvider.Clear();
+            int id;
+            int.TryParse(ArticuloId_numericUpDown.Text, out id);
+            Articulos articulos = BLL.ArticulosBLL.Buscar(id);
+            if(articulos != null)
+            {
+                BLL.ArticulosBLL.Eliminar(id);
+                MessageBox.Show("Articulos Eliminado");
+                Limpiar();
+
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar un libro que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                Nuevo_button.PerformClick();
+            }
         }
     }
 }

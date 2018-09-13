@@ -72,6 +72,7 @@
             this.Eliminar_button.TabIndex = 30;
             this.Eliminar_button.Text = "Eliminar";
             this.Eliminar_button.UseVisualStyleBackColor = true;
+            this.Eliminar_button.Click += new System.EventHandler(this.Eliminar_button_Click);
             // 
             // Guardar_button
             // 
