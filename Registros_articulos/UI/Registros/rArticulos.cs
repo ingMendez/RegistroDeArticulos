@@ -80,6 +80,16 @@ namespace Registros_articulos.UI.Registros
 
             return articulo;
         }
+        private Articulos LlenaCampo(Articulos articulos)
+        {
+       //     articulos.ArticuloId = Convert.ToInt32(ArticuloId_numericUpDown.Value);
+            FechaVencimiento_dateTimePicker.Value = articulos.FechaVencimiento;
+             Descripcion_textBox.Text = articulos.Descripcion;
+             Convert.ToInt32(Precio_numericUpDown.Value = articulos.precio);
+         Convert.ToInt32(Existencia_numericUpDown.Value = articulos.Existencia);
+          Convert.ToInt32(CantidadCotizada_numericUpDown.Value = articulos.cantCotizada);
+            return articulos;
+        }
 
         private void Nuevo_button_Click(object sender, EventArgs e)
         {
@@ -145,6 +155,26 @@ namespace Registros_articulos.UI.Registros
                 MessageBox.Show("No se puede eliminar un libro que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error );
                 Nuevo_button.PerformClick();
             }
+        }
+
+        private void Buscar_button_Click(object sender, EventArgs e)
+        {
+            SuperErrorProvider.Clear();
+            int id;
+            Articulos articulos =new Articulos();
+            int.TryParse(ArticuloId_numericUpDown.Text, out id);
+            articulos = ArticulosBLL.Buscar(id);
+            if(articulos != null)
+            {
+                MessageBox.Show("articulo encontrado");
+                LlenaCampo(articulos);
+
+            }
+            else
+            {
+                MessageBox.Show("articulo no encontrado");      
+            }
+          
         }
     }
 }

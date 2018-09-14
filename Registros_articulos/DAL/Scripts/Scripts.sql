@@ -11,3 +11,5 @@ Precio int,
 Existencia int,
 CantCotizada int
 );
+
+--select *from Articulos

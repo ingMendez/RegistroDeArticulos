@@ -1,4 +1,5 @@
-﻿using Registros_articulos.UI.Registros;
+﻿using Registros_articulos.UI.Consultas;
+using Registros_articulos.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,7 +33,7 @@ namespace Registros_articulos
 
         private void articulosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rArticulos c = new rArticulos();
+            CArticulos c = new CArticulos();
             c.ShowDialog();
         }
 

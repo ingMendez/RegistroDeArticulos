@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuperErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadCotizada_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Existencia_numericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Precio_numericUpDown)).BeginInit();
@@ -63,6 +64,7 @@
             this.Buscar_button.TabIndex = 31;
             this.Buscar_button.Text = "Buscar";
             this.Buscar_button.UseVisualStyleBackColor = true;
+            this.Buscar_button.Click += new System.EventHandler(this.Buscar_button_Click);
             // 
             // Eliminar_button
             // 
@@ -219,6 +221,14 @@
             this.panel1.Size = new System.Drawing.Size(362, 393);
             this.panel1.TabIndex = 32;
             // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
+            // 
             // rArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,5 +268,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider SuperErrorProvider;
         private System.Windows.Forms.Panel panel1;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }
