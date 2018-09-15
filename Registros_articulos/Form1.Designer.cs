@@ -120,7 +120,7 @@
             this.IsMdiContainer = true;
             this.Name = "sistemaArticulos";
             this.Text = "Articulos ";
-            this.Load += new System.EventHandler(this.Form1_Load);
+//            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

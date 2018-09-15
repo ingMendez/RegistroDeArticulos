@@ -18,10 +18,7 @@ namespace Registros_articulos
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
         private void ArticuloToolStripMenuItem_Click(object sender, EventArgs e)
