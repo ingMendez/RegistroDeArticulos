@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CArticulos));
             this.Consulta_dataGridView = new System.Windows.Forms.DataGridView();
             this.Criterio_textBox = new System.Windows.Forms.TextBox();
             this.Desde_dateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -86,9 +87,10 @@
             // 
             // Consultar_button
             // 
-            this.Consultar_button.Location = new System.Drawing.Point(392, 31);
+            this.Consultar_button.Image = ((System.Drawing.Image)(resources.GetObject("Consultar_button.Image")));
+            this.Consultar_button.Location = new System.Drawing.Point(392, 44);
             this.Consultar_button.Name = "Consultar_button";
-            this.Consultar_button.Size = new System.Drawing.Size(75, 52);
+            this.Consultar_button.Size = new System.Drawing.Size(71, 64);
             this.Consultar_button.TabIndex = 5;
             this.Consultar_button.Text = "Consultar";
             this.Consultar_button.UseVisualStyleBackColor = true;

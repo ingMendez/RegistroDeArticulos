@@ -70,9 +70,10 @@
             // 
             // Eliminar_button
             // 
-            this.Eliminar_button.Location = new System.Drawing.Point(228, 330);
+            this.Eliminar_button.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar_button.Image")));
+            this.Eliminar_button.Location = new System.Drawing.Point(228, 317);
             this.Eliminar_button.Name = "Eliminar_button";
-            this.Eliminar_button.Size = new System.Drawing.Size(75, 41);
+            this.Eliminar_button.Size = new System.Drawing.Size(57, 54);
             this.Eliminar_button.TabIndex = 30;
             this.Eliminar_button.Text = "Eliminar";
             this.Eliminar_button.UseVisualStyleBackColor = true;
@@ -80,9 +81,10 @@
             // 
             // Guardar_button
             // 
-            this.Guardar_button.Location = new System.Drawing.Point(129, 330);
+            this.Guardar_button.Image = ((System.Drawing.Image)(resources.GetObject("Guardar_button.Image")));
+            this.Guardar_button.Location = new System.Drawing.Point(129, 317);
             this.Guardar_button.Name = "Guardar_button";
-            this.Guardar_button.Size = new System.Drawing.Size(75, 41);
+            this.Guardar_button.Size = new System.Drawing.Size(54, 54);
             this.Guardar_button.TabIndex = 29;
             this.Guardar_button.Text = "Guardar";
             this.Guardar_button.UseVisualStyleBackColor = true;
@@ -90,9 +92,10 @@
             // 
             // Nuevo_button
             // 
-            this.Nuevo_button.Location = new System.Drawing.Point(27, 330);
+            this.Nuevo_button.Image = ((System.Drawing.Image)(resources.GetObject("Nuevo_button.Image")));
+            this.Nuevo_button.Location = new System.Drawing.Point(27, 317);
             this.Nuevo_button.Name = "Nuevo_button";
-            this.Nuevo_button.Size = new System.Drawing.Size(75, 41);
+            this.Nuevo_button.Size = new System.Drawing.Size(52, 54);
             this.Nuevo_button.TabIndex = 28;
             this.Nuevo_button.Text = "Nuevo";
             this.Nuevo_button.UseVisualStyleBackColor = true;
