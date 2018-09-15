@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Registros_articulos
 {
-    public partial class Form1 : Form
+    public partial class sistemaArticulos : Form
     {
-        public Form1()
+        public sistemaArticulos()
         {
             InitializeComponent();
         }

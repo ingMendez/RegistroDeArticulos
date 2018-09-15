@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rArticulos));
             this.Buscar_button = new System.Windows.Forms.Button();
             this.Eliminar_button = new System.Windows.Forms.Button();
             this.Guardar_button = new System.Windows.Forms.Button();
@@ -58,9 +59,10 @@
             // 
             // Buscar_button
             // 
-            this.Buscar_button.Location = new System.Drawing.Point(253, 81);
+            this.Buscar_button.Image = ((System.Drawing.Image)(resources.GetObject("Buscar_button.Image")));
+            this.Buscar_button.Location = new System.Drawing.Point(243, 58);
             this.Buscar_button.Name = "Buscar_button";
-            this.Buscar_button.Size = new System.Drawing.Size(75, 45);
+            this.Buscar_button.Size = new System.Drawing.Size(60, 66);
             this.Buscar_button.TabIndex = 31;
             this.Buscar_button.Text = "Buscar";
             this.Buscar_button.UseVisualStyleBackColor = true;
