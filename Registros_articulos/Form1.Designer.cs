@@ -81,11 +81,12 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
             this.toolStripMenuItem1.Text = "Consultas";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // articulosToolStripMenuItem
             // 
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articulosToolStripMenuItem.Text = "Articulo";
             this.articulosToolStripMenuItem.Click += new System.EventHandler(this.articulosToolStripMenuItem_Click);
             // 
@@ -100,7 +101,7 @@
             // ArticuloToolStripMenuItem
             // 
             this.ArticuloToolStripMenuItem.Name = "ArticuloToolStripMenuItem";
-            this.ArticuloToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.ArticuloToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ArticuloToolStripMenuItem.Text = "Articulos";
             this.ArticuloToolStripMenuItem.Click += new System.EventHandler(this.ArticuloToolStripMenuItem_Click);
             // 
@@ -120,7 +121,6 @@
             this.IsMdiContainer = true;
             this.Name = "sistemaArticulos";
             this.Text = "Articulos ";
-//            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

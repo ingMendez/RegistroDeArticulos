@@ -32,12 +32,19 @@ namespace Registros_articulos
         {
             CArticulos c = new CArticulos();
             c.ShowDialog();
+            
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rArticulos c = new rArticulos();
+            
+            Close();
            
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

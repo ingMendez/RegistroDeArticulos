@@ -77,6 +77,7 @@
             // 
             this.Filtro_comboBox.FormattingEnabled = true;
             this.Filtro_comboBox.Items.AddRange(new object[] {
+            "Todo",
             "ArticuloIo",
             "descripcion",
             "fechaVencimiento"});
